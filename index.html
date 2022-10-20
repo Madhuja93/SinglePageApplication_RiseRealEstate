@@ -1,38 +1,173 @@
 <html>
-    <head>
-        <title>Rise Real Estate</title>
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width =device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@100;200;300;400&display=swap" rel="stylesheet">
-        <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-<body>
+  <head>
+    <title>Rise Real Estate</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
+    />
+    <meta name="viewport" content="width =device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="script.js"></script>
+  </head>
+  <body>
     <section id="banner">
-    <nav>
-        <a href="index.html"> <img src="images\logo.png" class="logo"></a>
-     <div class="nav-links" id="navLinks">
-        <i class="fa fa-times" onclick="hideMenu()"></i>
-    <ul>
-        <li><a href="#">BUY</a></li>
-        <li><a href="#">SELL</a></li>
-        <li><a href="#">RENT</a></li>
-        <li><a href="#">MORTGAGE</a></li>
-    </ul>
-     </div>
-        <div class="banner-text">
-            <h1>RISE REAL ESTATE</h1>
-            <P>Where Dreams Come Home</P>
-            <div class="banner-btn">
-                <a ref="#"><span></span>Find a Local Agent</a>
-                <a ref="#"><span></span> Get a Free Estimate</a>
+      <nav>
+        <a href="index.html"> <img src="images\logo.png" class="logo" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="#">BUY</a></li>
+            <li><a href="#">SELL</a></li>
+            <li><a href="#">RENT</a></li>
+            <li><a href="#">MORTGAGE</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars navigation-bar" onclick="showMenu()"></i>
+      </nav>
+      <div class="banner-text">
+        <h1>RISE REAL ESTATE</h1>
+        <p>Where Dreams Come Home</p>
+        <div class="banner-btn">
+          <a ref="#"><span></span>Find a Local Agent</a>
+          <a ref="#"><span></span> Get a Free Estimate</a>
+        </div>
+      </div>
+    </section>
 
+    <!-----------------Explore Homes----------------------------->
+    <section id="explore">
+      <div class="title-text">
+        <p>EXPLORE</p>
+        <h1>Homes on Rise</h1>
+      </div>
+
+      <div class="explore-box">
+        <div class="explore">
+          <h1>For Buyers</h1>
+          <div class="explore-desc">
+            <div class="explore-icon">
+              <i class="fa fa-inr"></i>
+            </div>
+
+            <div class="explore-text">
+              <p>Our approach is rooted in a deep understanding of your needs. We support you with tools, expert guidance, and tailored resources, then connect you with a top-rated OJO Network Agent, so you’re confident and equipped for each step.</p>
+            </div>
+          </div>
+
+          <h1>For Sellers</h1>
+          <div class="explore-desc">
+            <div class="explore-icon">
+              <i class="fa fa-handshake-o"></i>
+            </div>
+
+            <div class="explore-text">
+              <p>Transparent guidance, data-driven insights, and thoughtful matching with the right OJO Network Agent, equip you with the knowledge you need to monitor your home’s equity, identify when to sell, and maximize your home sale.</p>
+          
+            </div>
+          </div>
+
+          <h1>For Homeowners</h1>
+          <div class="explore-desc">
+            <div class="explore-icon">
+              <i class="fa fa-user-o"></i>
+            </div>
+
+            <div class="explore-text">
+              <p>With personalized guidance and intuitive tools, you can make informed decisions around life’s biggest asset your home. Easily monitor your home’s market value; find savings on taxes, mortgages, and insurance; and build long-term wealth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="explore-img">
+          <img src="images\img3.jpg" />
+        </div>
+      </div>
+    </section>
+    <!------------------------Standards---------------------------->
+    <section id="standards">
+            <div class="title-text">
+              <p>STANDARDS</p>
+              <h1>Standards of Rise</h1>
+            </div>
+      <div class="standards-box">
+        <div class="single-standards">
+            <img src="images/img1.jpg">
+            <div class="overlay"></div>
+            <div class="standards-desc">
+                <h3>Global</h3>
+                <hr>
+                <p>Search International Listings in over 18 languages with more than 36 currencies.</p>
             </div>
         </div>
-        <i class="fa fa-bars" onclick="showMenu()"></i>    
-    </nav>
-    </section>
-</body>
+        <div class="single-standards">
+            <img src="images/img3.jpg">
+            <div class="overlay"></div>
+            <div class="standards-desc">
+                <h3>Commercial</h3>
+                <hr>
+                <p>A Global brand with local representation specializing in Commercial spaces.</p>
+            </div>
+        </div>
+        <div class="single-standards">
+            <img src="images/img4.jpg">
+            <div class="overlay"></div>
+            <div class="standards-desc">
+                <h3>Luxury</h3>
+                <hr>
+                <p>Explore featured luxury homes & Estates.</p>
+            </div>
+        </div>
+      </div> 
+      </section>
+      <!----------------------Testimonials---------------------------------->
+  
+<section id="testimonial">
+    <div class="title-text">
+        <p>RATINGS</p>
+        <h1>Love of Rise</h1>
+      </div>
+      <div class="testimonial-row">
+        <div class="testimonial-col">
+            <div class="user">
+                <img src="images/user1.jpg">
+                <div class="user-info">
+                    <h4>Pramila Jayapal <i class="fa fa-twitter"></i></h4>
+                    <small>@RepJayapal</small>
+                </div>
+            </div>
+            <p>Rise explained buying a home to me and made it easy to comprehend. Very appreciated.</p>
+        </div>
+        <div class="testimonial-col">
+            <div class="user">
+                <img src="images/user2.jpg">
+                <div class="user-info">
+                    <h4>Nisal Cansing <i class="fa fa-twitter"></i></h4>
+                    <small>@Nisalcansing</small>
+                </div>
+                </div>
+            
+            <p>Highly recommend for first time buyers</p>
+        </div>
+        <div class="testimonial-col">
+            <div class="user">
+                <img src="images/user3.jpg">
+                <div class="user-info">
+                    <h4>Prasad Ruwanpathirana<i class="fa fa-twitter"></i></h4>
+                    <small>@prasad_sfdc</small>
+                </div>
+            </div>
+            <p>They impressed me in every stage of my transaction</p>
+            </p>
+        </div>
+      </div>
+</section>
 
+  </body>
 </html>
