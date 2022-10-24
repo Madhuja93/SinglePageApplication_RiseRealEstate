@@ -15,24 +15,39 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
-
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script> -->
   </head>
-  <body>
-    <header>
+
+  <body onload="slider()">
     <section id="banner">
       <nav>
         <a href="index.html"> <img src="images\logo.png" class="logo" /></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li class="links"><a href="#banner">HOME</a></li>
-            <li class="links"><a href="#about">ABOUT</a></li>
-            <li class="links"><a href="#explore">EXPLORE</a></li>
-            <li class="links"><a href="#standards">STANDARDS</a></li>
-            <li class="links"><a href="#testimonial">RATINGS </a></li>
-            <li class="links"><a href="#footer">CONNECT</a></li>
+            <li onclick="callReset()" class="links">
+              <a href="#banner">HOME</a>
+            </li>
+            <li onclick="callReset()" class="links">
+              <a href="#about">ABOUT</a>
+            </li>
+            <li onclick="callReset()" class="links">
+              <a href="#explore">EXPLORE</a>
+            </li>
+            <li onclick="callReset()" class="links">
+              <a href="#standards">STANDARDS</a>
+            </li>
+            <li onclick="callReset()" class="links">
+              <a href="#testimonial">RATINGS </a>
+            </li>
+            <li onclick="callReset()" class="links">
+              <a href="#footer">CONNECT</a>
+            </li>
           </ul>
         </div>
         <i class="fa fa-bars navigation-bar" onclick="showMenu()"></i>
@@ -41,41 +56,16 @@
         <h1>RISE REAL ESTATE</h1>
         <p>Where Dreams Come Home</p>
         <div class="banner-btn">
-          <a ref="#"><span></span>Find a Local Agent</a>
-          <a ref="#"><span></span> Get a Free Estimate</a>
+          <a ref="#"><span></span>New Listings</a>
+          <a ref="#"><span></span>Open Houses</a>
         </div>
       </div>
     </section>
-    </header>
-    <!-----------------------------About----------------------------------->
 
-    <section id="about">
-      <div class="title-text">
-        <p>ABOUT</p>
-        <h1>About Rise</h1>
-      </div>
+    <!---------------------------------------------------------About------------------------------------------>
 
-        <div class="row">
-          <div class="about-col">
-            <h3>Sign Up</h3>
-            <h2>Customize your Home Search</h2>
-            <p>Sign up for a free online account and personalize your MLS search to find your dream home.</p>
-             
-          </div>
-          <div class="about-col">
-            <h3>Get a Free Estimate</h3>
-            <h2>Determining your Home's value</h2>
-            <p>The first step in the sale of your home is to understand what your home could be worth. </p>
-          </div>
-          <div class="about-col">
-            <h3>Find a Local Agent</h3>
-            <h2>Find a Better Home and Garden</h2>
-  
-            <p>Our affiliated agents are inspired to uphold the trusted reputation of the Better Homes and Gardens. Real Estate brand through their local knowledge, dedication to service and responsiveness</p>
-          </div>
-        </div>
-      </section>
-    <!-----------------Explore Homes----------------------------->
+    <section id="about"></section>
+    <!-------------------------------------------------------Explore------------------------------------------>
     <section id="explore">
       <div class="title-text">
         <p>EXPLORE</p>
@@ -91,7 +81,12 @@
             </div>
 
             <div class="explore-text">
-              <p>Our approach is rooted in a deep understanding of your needs. We support you with tools, expert guidance, and tailored resources, then connect you with a top-rated OJO Network Agent, so you’re confident and equipped for each step.</p>
+              <p>
+                Our approach is rooted in a deep understanding of your needs. We
+                support you with tools, expert guidance, and tailored resources,
+                then connect you with a top-rated OJO Network Agent, so you’re
+                confident and equipped for each step.
+              </p>
             </div>
           </div>
 
@@ -102,8 +97,12 @@
             </div>
 
             <div class="explore-text">
-              <p>Transparent guidance, data-driven insights, and thoughtful matching with the right OJO Network Agent, equip you with the knowledge you need to monitor your home’s equity, identify when to sell, and maximize your home sale.</p>
-          
+              <p>
+                Transparent guidance, data-driven insights, and thoughtful
+                matching with the right OJO Network Agent, equip you with the
+                knowledge you need to monitor your home’s equity, identify when
+                to sell, and maximize your home sale.
+              </p>
             </div>
           </div>
 
@@ -114,7 +113,12 @@
             </div>
 
             <div class="explore-text">
-              <p>With personalized guidance and intuitive tools, you can make informed decisions around life’s biggest asset your home. Easily monitor your home’s market value; find savings on taxes, mortgages, and insurance; and build long-term wealth.</p>
+              <p>
+                With personalized guidance and intuitive tools, you can make
+                informed decisions around life’s biggest asset your home. Easily
+                monitor your home’s market value; find savings on taxes,
+                mortgages, and insurance; and build long-term wealth.
+              </p>
             </div>
           </div>
         </div>
@@ -123,113 +127,132 @@
         </div>
       </div>
     </section>
-    <!------------------------Standards---------------------------->
+    <!------------------------------------------------------Standards--------------------------------------->
     <section id="standards">
-            <div class="title-text">
-              <p>STANDARDS</p>
-              <h1>Standards of Rise</h1>
-            </div>
+      <div class="title-text">
+        <p>STANDARDS</p>
+        <h1>Standards of Rise</h1>
+      </div>
       <div class="standards-box">
         <div class="single-standards">
-            <img src="images/img1.jpg">
-            <div class="overlay"></div>
-            <div class="standards-desc">
-                <h3>Global</h3>
-                <hr>
-                <p>Search International Listings in over 18 languages with more than 36 currencies.</p>
-            </div>
+          <img src="images/img1.jpg" />
+          <div class="overlay"></div>
+          <div class="standards-desc">
+            <h3>Global</h3>
+            <hr />
+            <p>
+              Search International Listings in over 18 languages with more than
+              36 currencies.
+            </p>
+          </div>
         </div>
         <div class="single-standards">
-            <img src="images/img3.jpg">
-            <div class="overlay"></div>
-            <div class="standards-desc">
-                <h3>Commercial</h3>
-                <hr>
-                <p>A Global brand with local representation specializing in Commercial spaces.</p>
-            </div>
+          <img src="images/img3.jpg" />
+          <div class="overlay"></div>
+          <div class="standards-desc">
+            <h3>Commercial</h3>
+            <hr />
+            <p>
+              A Global brand with local representation specializing in
+              Commercial spaces.
+            </p>
+          </div>
         </div>
         <div class="single-standards">
-            <img src="images/img4.jpg">
-            <div class="overlay"></div>
-            <div class="standards-desc">
-                <h3>Luxury</h3>
-                <hr>
-                <p>Explore featured luxury homes & Estates.</p>
-            </div>
+          <img src="images/img4.jpg" />
+          <div class="overlay"></div>
+          <div class="standards-desc">
+            <h3>Luxury</h3>
+            <hr />
+            <p>Explore featured luxury homes & Estates.</p>
+          </div>
         </div>
-      </div> 
-      </section>
-      <!----------------------Testimonials---------------------------------->
-  
-<section id="testimonial">
-    <div class="title-text">
+      </div>
+    </section>
+    <!--------------------------------------------------Testimonials------------------------------------------->
+
+    <section id="testimonial">
+      <div class="title-text">
         <p>RATINGS</p>
         <h1>Love of Rise</h1>
       </div>
       <div class="testimonial-row">
         <div class="testimonial-col">
-            <div class="user">
-                <img src="images/user1.jpg">
-                <div class="user-info">
-                    <h4>Pramila Jayapal <i class="fa fa-twitter"></i></h4>
-                    <small>@RepJayapal</small>
-                </div>
+          <div class="user">
+            <img src="images/user1.jpg" />
+            <div class="user-info">
+              <h4>Pramila Jayapal <i class="fa fa-twitter"></i></h4>
+              <small>@RepJayapal</small>
             </div>
-            <p>Rise explained buying a home to me and made it easy to comprehend. Very appreciated.</p>
+          </div>
+          <p>
+            Rise explained buying a home to me and made it easy to comprehend.
+            Very appreciated.
+          </p>
         </div>
         <div class="testimonial-col">
-            <div class="user">
-                <img src="images/user2.jpg">
-                <div class="user-info">
-                    <h4>Nisal Cansing <i class="fa fa-twitter"></i></h4>
-                    <small>@Nisalcansing</small>
-                </div>
-                </div>
-            
-            <p>Highly recommend for first time buyers. I got an incredible rate and much better than any other offer.</p>
+          <div class="user">
+            <img src="images/user2.jpg" />
+            <div class="user-info">
+              <h4>Nisal Cansing <i class="fa fa-twitter"></i></h4>
+              <small>@Nisalcansing</small>
+            </div>
+          </div>
+
+          <p>
+            Highly recommend for first time buyers. I got an incredible rate and
+            much better than any other offer.
+          </p>
         </div>
         <div class="testimonial-col">
-            <div class="user">
-                <img src="images/user3.jpg">
-                <div class="user-info">
-                    <h4>Prasad Ruwanpathirana<i class="fa fa-twitter"></i></h4>
-                    <small>@prasad_sfdc</small>
-                </div>
+          <div class="user">
+            <img src="images/user3.jpg" />
+            <div class="user-info">
+              <h4>Prasad Ruwanpathirana<i class="fa fa-twitter"></i></h4>
+              <small>@prasad_sfdc</small>
             </div>
-            <p>They impressed me in every stage of my transaction. They were very responsive and helpful.</p>
-            </p>
+          </div>
+          <p>
+            They impressed me in every stage of my transaction. They were very
+            responsive and helpful.
+          </p>
         </div>
       </div>
-</section>
-<!-------------------------------------------Footer---------------------------------->
-  <section id="footer">
-    <img src="images/footer.png" class="footer-img">
-    <div class="title-text">
-      <p>CONNECT</p>
-      <h1>Contact Rise</h1>
-    </div>
-<div class="footer-row">
-  <div class="footer-left">
-    <h1>Open Hours</h1>
-    <p><i class="fa fa-clock-o"></i>Monday to Saturday - 9am to 10pm</p>
-  </div>
-  
-  <div class="footer-right">
-    <h1>Contact Us</h1>
-    <p>#67 Marble Place, Colomo 7 <i class="fa fa-map-marker"></i></p>
-      <p>https://www.rise.com<i class="fa fa-envelope"></i></p>
-      <p>+94773036786<i class="fa fa-phone"></i></p>
-  </div>
-</div>
-<div class="social-links">
-  <i class="fa fa-google"></i>
-  <i class="fa fa-facebook"></i>
-  <i class="fa fa-instagram"></i>
-  <i class="fa fa-twitter"></i>
-  <p>Rise Real Estate. All Rights Reserved</p><br>
-  <p>Site by Madhuja Pabasara<br>
-    <a href="sitemap.html">(Site Map)</a></p>
-</div>
-  </section>
-</body>
+    </section>
+
+    <div id="content"></div>
+
+    <!-------------------------------------------Footer------------------------------------------------>
+    <section id="footer">
+      <img src="images/footer.png" class="footer-img" />
+      <div class="title-text">
+        <p>CONNECT</p>
+      </div>
+      <div class="footer-row">
+        <div class="footer-left">
+          <h1>Open Hours</h1>
+          <p><i class="fa fa-clock-o"></i>Monday to Saturday - 9am to 10pm</p>
+        </div>
+
+        <div class="footer-right">
+          <h1>Contact Us</h1>
+          <p>#67 Marble Place, Colomo 7 <i class="fa fa-map-marker"></i></p>
+          <p>https://www.rise.com<i class="fa fa-envelope"></i></p>
+          <p>+94773036786<i class="fa fa-phone"></i></p>
+        </div>
+      </div>
+      <div class="social-links">
+        <i class="fa fa-google"></i>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-twitter"></i>
+        <p>Rise Real Estate. All Rights Reserved<br /></p>
+        <p>
+          Site by Madhuja Pabasara<br />
+          <a href="sitemap.html">(Site Map)</a><br />
+          <a href="javascript:;callPrivacyPolicy()"> Privacy Notice </a>
+        </p>
+      </div>
+    </section>
+  </body>
 </html>
