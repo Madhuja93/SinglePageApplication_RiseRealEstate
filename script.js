@@ -9,6 +9,10 @@ function hideMenu() {
 
 /*-----------------------------------------Banner slider--------------------------*/
 
+
+function slider() {
+
+  
 var banner = document.getElementById("banner");
 
 var images = new Array(
@@ -22,16 +26,20 @@ var images = new Array(
 );
 
 var len = images.length;
-var i = 0;
+var i = 1;
 
-function slider() {
   if (i > len - 1) {
-    i = 0;
+    i = 1;
   }
 
-  banner.src = images[i];
+  var className = 'banner-img' + i;
+
+  // banner.src = images[i];
+ // $('#banner').removeClass($('#banner').attr('class'));
+
+ // $('#banner').addClass(className);
   i++;
-  setTimeout("slider()", 3000);
+  setTimeout("slider()", 1000);
 }
 
 /*--------------------------------------Register toggle button------------------------*/
@@ -57,13 +65,19 @@ function signup() {
 
 /*------------------------------------Calling pages------------------------------------*/
 function callRegistration() {
-  var pageRef = $(this).attr("href");
   callPage("register.html", "#about");
 }
 
 function callPrivacyPolicy() {
-  var pageRef = $(this).attr("href");
   callPage("privacypolicy.html", "#content");
+}
+
+function callOpenHouse() {
+  callPage("openhouse.html", "#about");
+} 
+
+function callAppointment() {
+  callPage("appointment.html", "#about");
 }
 
 function callPage(pageRefInput, content) {
@@ -73,22 +87,55 @@ function callPage(pageRefInput, content) {
     dataType: "text",
     success: function (response) {
       $(content).html(response);
+      window.location.href = 'index.html' + content;
     },
   });
 }
+function callReset(value) {
+  $(".active").removeClass("active");
 
-function callReset() {
-  $("#about").append(function () {
-    var pageRef = $(this).attr("href");
-    callPage("about.html", "#about");
-  });
+  if(value == 1) {
+    $("#bannderId").addClass("active"); 
+  } 
 
+  if(value == 2) {
+    $("#aboutId").addClass("active"); 
+  } 
+
+  if(value == 3) {
+    $("#exploreId").addClass("active");
+  }
+
+  if(value == 4) {
+    $("#standardsId").addClass("active");
+  }
+
+  if(value == 5) {
+    $("#testimonialsId").addClass("active");
+  }
+
+  if(value == 6) {
+    $("#connectId").addClass("active");
+  }
+
+  loadAboutPage();
   $("#content").empty();
 }
 
-$(document).ready(function () {
+function loadAboutPage(){
   $("#about").append(function () {
-    var pageRef = $(this).attr("href");
-    callPage("about.html", "#about");
+    $.ajax({
+      url: "about.html",
+      type: "GET",
+      dataType: "text",
+      success: function (response) {
+        $("#about").html(response);
+      },
+    });
   });
+}
+
+$(document).ready(function () {
+  loadAboutPage();
+  
 });

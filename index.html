@@ -24,29 +24,29 @@
   </head>
 
   <body onload="slider()">
-    <section id="banner">
+    <section id="banner" class="banner">
       <nav>
         <a href="index.html"> <img src="images\logo.png" class="logo" /></a>
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
-            <li onclick="callReset()" class="links">
-              <a href="#banner">HOME</a>
+            <li onclick="callReset(1)" class="links">
+              <a id="bannderId" href="#banner">HOME</a>
             </li>
-            <li onclick="callReset()" class="links">
-              <a href="#about">ABOUT</a>
+            <li onclick="callReset(2)" class="links">
+              <a id="aboutId" href="#about">ABOUT</a>
             </li>
-            <li onclick="callReset()" class="links">
-              <a href="#explore">EXPLORE</a>
+            <li onclick="callReset(3)" class="links">
+              <a id="exploreId" href="#explore">EXPLORE</a>
             </li>
-            <li onclick="callReset()" class="links">
-              <a href="#standards">STANDARDS</a>
+            <li onclick="callReset(4)" class="links">
+              <a id="standardsId" href="#standards">STANDARDS</a>
             </li>
-            <li onclick="callReset()" class="links">
-              <a href="#testimonial">RATINGS </a>
+            <li onclick="callReset(5)" class="links">
+              <a id="testimonialsId" href="#testimonial">RATINGS </a>
             </li>
-            <li onclick="callReset()" class="links">
-              <a href="#footer">CONNECT</a>
+            <li onclick="callReset(6)" class="links">
+              <a id="connectId" href="#footer">CONNECT</a>
             </li>
           </ul>
         </div>
@@ -56,15 +56,18 @@
         <h1>RISE REAL ESTATE</h1>
         <p>Where Dreams Come Home</p>
         <div class="banner-btn">
-          <a ref="#"><span></span>New Listings</a>
-          <a ref="#"><span></span>Open Houses</a>
+          <a href="javascript:;callAppointment()"><span></span>Make an Appointment</a>
+          <a href="javascript:;callOpenHouse()"><span></span>Open Houses</a>
         </div>
       </div>
     </section>
 
     <!---------------------------------------------------------About------------------------------------------>
 
-    <section id="about"></section>
+    <section id="about">
+
+    </section>
+
     <!-------------------------------------------------------Explore------------------------------------------>
     <section id="explore">
       <div class="title-text">
@@ -123,7 +126,7 @@
           </div>
         </div>
         <div class="explore-img">
-          <img src="images\img3.jpg" />
+          <img src="images\img6.jpg" />
         </div>
       </div>
     </section>
