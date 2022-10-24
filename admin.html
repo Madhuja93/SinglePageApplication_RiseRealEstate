@@ -1,0 +1,85 @@
+
+    <section class="header1">
+      <h1>Admin</h1>
+    </section>
+    <!-----------------Sub content------------------------------------->
+
+    <section class="subcontent"></section>
+
+    <script>
+      $(document).ready(function () {
+        var userInfos = localStorage;
+        var _userInfos = [];
+
+        Object.keys(localStorage).forEach(function (key) {
+          if (JSON.parse(localStorage.getItem(key))._Id != undefined) {
+            _userInfos.push(JSON.parse(localStorage.getItem(key)));
+          }
+        });
+
+        console.log(_userInfos);
+
+        //Create a HTML Table element.
+        var table = $("<table><table />").addClass("table");
+
+        //Add the header row.
+        var row = $(table[0].insertRow(-1));
+
+        var headerCell_1 = $("<th />");
+        headerCell_1.html("Reader Id");
+        row.append(headerCell_1);
+
+        var headerCell_2 = $("<th />");
+        headerCell_2.html("First Name");
+        row.append(headerCell_2);
+
+        var headerCell_3 = $("<th />");
+        headerCell_3.html("Last Name");
+        row.append(headerCell_3);
+
+        var headerCell_4 = $("<th />");
+        headerCell_4.html("Email");
+        row.append(headerCell_4);
+
+        var headerCell_5 = $("<th />");
+        headerCell_5.html("Action");
+        row.append(headerCell_5);
+
+        //Add the data rows.
+        for (var i = 0; i < _userInfos.length; i++) {
+          row = $(table[0].insertRow(-1));
+
+          var cell_1 = $("<td />");
+          cell_1.html(_userInfos[i]._Id);
+          row.append(cell_1);
+
+          var cell_2 = $("<td />");
+          cell_2.html(_userInfos[i]._firstName);
+          row.append(cell_2);
+
+          var cell_3 = $("<td />");
+          cell_3.html(_userInfos[i]._lastName);
+          row.append(cell_3);
+
+          var cell_4 = $("<td />");
+          cell_4.html(_userInfos[i]._email);
+          row.append(cell_4);
+
+          row.append(
+            '<button class="btn mod" type="button" onclick="onUpdate(' +
+              _userInfos[i]._Id +
+              ')" >Update</button>'
+          );
+          row.append(
+            '<button class="btn mod" type="button" onclick="onDelete(' +
+              _userInfos[i]._Id +
+              ')" >Delete</button>'
+          );
+        }
+
+        var dvTable = $(".subcontent");
+        dvTable.html("");
+        dvTable.append(table);
+      });
+    </script>
+

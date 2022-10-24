@@ -61,6 +61,57 @@ function signup() {
   z.style.left = "0";
 }
 
+function onSignInButtonClick(){
+
+}
+
+function onSignUpButtonClick(){
+
+  var firstname = $("#firstName").val();
+  var lastname = $("#firstName").val();
+  var Email = $("#email").val();
+  var Password = $("#password").val();
+
+  var largestNumber = 0;
+
+  if (localStorage.length != 0) {
+    Object.keys(localStorage).forEach(function (key) {
+      if (largestNumber < JSON.parse(localStorage.getItem(key))._Id) {
+        largestNumber = JSON.parse(localStorage.getItem(key))._Id;
+      }
+    });
+  }
+
+  var generatedId = largestNumber + 1;
+
+  var userInfo = {
+    _Id: generatedId,
+    _firstName: firstname,
+    _lastName: lastname,
+    _email: Email,
+    _password: Password,
+  };
+
+  var userInfo = JSON.stringify(userInfo);
+
+  localStorage.setItem("RiseInfo_" + generatedId, userInfo);
+
+  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+
+}
+
+function onUpdate(userId) {
+  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+}
+
+function onDelete(userId) {
+  localStorage.removeItem("RiseInfo_" + userId);
+  alert("Successfully Deleted");
+
+  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+}
+
+
 /*------------------------------------Calling pages------------------------------------*/
 function callRegistration() {
   callPage("register.html", "#about");
@@ -76,6 +127,10 @@ function callOpenHouse() {
 
 function callAppointment() {
   callPage("appointment.html", "#about");
+}
+
+function callAdmin(){
+  callPage("admin.html", "#about");
 }
 
 function callPage(pageRefInput, content) {
