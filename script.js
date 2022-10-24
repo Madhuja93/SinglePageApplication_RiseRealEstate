@@ -10,23 +10,21 @@ function hideMenu() {
 /*-----------------------------------------Banner slider--------------------------*/
 
 
+var i = 1;
+
 function slider() {
 
-  
 var banner = document.getElementById("banner");
 
 var images = new Array(
-  "images/bg.jpg",
   "images/bg1.jpg",
   "images/bg2.jpg",
   "images/bg3.jpg",
-  "images/bg4.jpg",
-  "images/bg5.jpg",
-  "images/bg6.jpg"
+  "images/bg4.jpg"
 );
 
 var len = images.length;
-var i = 1;
+
 
   if (i > len - 1) {
     i = 1;
@@ -35,11 +33,11 @@ var i = 1;
   var className = 'banner-img' + i;
 
   // banner.src = images[i];
- // $('#banner').removeClass($('#banner').attr('class'));
+  $('#banner').removeClass($('#banner').attr('class'));
+  $('#banner').addClass('banner ' + className);
 
- // $('#banner').addClass(className);
   i++;
-  setTimeout("slider()", 1000);
+  setTimeout("slider()", 3000);
 }
 
 /*--------------------------------------Register toggle button------------------------*/

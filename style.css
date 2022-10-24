@@ -7,8 +7,6 @@
 
 
 .banner {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -37,15 +35,6 @@
 .banner-img4 {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
   url(images/bg4.jpg);
-}
-.banner-img5 {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg5.jpg);
-}
-
-.banner-img6 {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg6.jpg);
 }
 
 nav {
@@ -202,7 +191,7 @@ nav .fa {
   padding: 70px 0;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(#97d7d0, rgba(0, 0, 0, 0.5)), url(images/bg.jpg);
+  background: linear-gradient(#97d7d0, rgba(0, 0, 0, 0.5)), url(images/bg1.jpg);
   background-size: cover;
   background-position: center;
   display: table;
