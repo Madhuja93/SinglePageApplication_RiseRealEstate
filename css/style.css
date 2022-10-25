@@ -5,7 +5,6 @@
   scroll-behavior: smooth;
 }
 
-
 .banner {
   background-size: cover;
   background-position: center;
@@ -19,22 +18,22 @@
 
 .banner-img1 {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg1.jpg);
+    url(/images/bg1.jpg);
 }
 
 .banner-img2 {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg2.jpg);
+    url(/images/bg2.jpg);
 }
 
 .banner-img3 {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg3.jpg);
+    url(/images/img2.jpg);
 }
 
 .banner-img4 {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  url(images/bg4.jpg);
+    url(/images/bg4.jpg);
 }
 
 nav {
@@ -171,7 +170,7 @@ nav .fa {
     margin: 20px auto;
   }
   nav .fa {
-    display: block; 
+    display: block;
     color: rgb(19, 92, 78);
     margin: 20px;
     font-size: 22px;
@@ -191,7 +190,7 @@ nav .fa {
   padding: 70px 0;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(#97d7d0, rgba(0, 0, 0, 0.5)), url(images/bg1.jpg);
+  background: linear-gradient(#97d7d0, rgba(0, 0, 0, 0.5)), url(/images/bg1.jpg);
   background-size: cover;
   background-position: center;
   display: table;
@@ -543,7 +542,7 @@ hr {
 
 /*----------------------------------------------------SignUp-------------------------------------------*/
 #register {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), #009688), url(images/img2.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #009688);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -583,7 +582,7 @@ hr {
   position: absolute;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #009688, #604a1c);
+  background: linear-gradient(to right, #c6f1ec, #4e4c4a);
   border-radius: 30px;
   transition: 0.5s;
 }
@@ -653,9 +652,10 @@ span {
   }
 }
 
-/*-------------------------------------------------Open House---------------------------------------------*/
-.openhouse{
-  background: linear-gradient(rgba(0, 0, 0, 0.6),rgb(0, 0, 0, 0.6)), url(images/img6.jpg);
+/*-------------------------------------------------Open Houses---------------------------------------------*/
+.openhouse {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
+    url(images/img6.jpg);
   background-size: cover;
   background-position: center;
   height: 150vh;
@@ -663,13 +663,12 @@ span {
   background-size: cover;
   position: absolute;
   background-attachment: fixed;
-
 }
-.form-box h2{
+.form-box h2 {
   text-align: center;
   padding-top: 20px;
 }
-.image-col{
+.image-col {
   position: relative;
   width: 400px;
   flex-basis: 31%;
@@ -677,48 +676,146 @@ span {
   padding: 20px 12px;
   box-sizing: border-box;
 }
-.row{
+.row {
   margin-top: 5%;
   display: flex;
   justify-content: space-between;
 }
-.image__img{
+.image__img {
   display: block;
   width: 100%;
 }
-.image-overlay{
+.image-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-color: #fff;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-opacity: 0;
-transition: opacity 0.25s;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
 }
-.image-overlay--blur{
+.image-overlay--blur {
   backdrop-filter: blur(5px);
 }
-.image-overlay > *{
+.image-overlay > * {
   transform: translateY(20px);
   transition: transform 0.25s;
 }
-.image-overlay:hover{
+.image-overlay:hover {
   opacity: 1;
 }
-.image-overlay:hover > *{
+.image-overlay:hover > * {
   transform: translateY(0);
 }
-.image-title{
-font-size: 12px;
-font-weight: bold;
+.image-title {
+  font-size: 12px;
+  font-weight: bold;
 }
-.image-desc{
-font-size: 10px;
-margin-top: 20px;
+.image-desc {
+  font-size: 10px;
+  margin-top: 20px;
 }
+
+/*--------------------------------------sitemap--------------------------------------------------*/
+.sitemap p{
+  margin-top: 60px;
+}
+.sitemap {
+  width: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+  padding-left: 70px;
+}
+.sitemap a {
+  text-decoration: none;
+}
+.sitemap ul {
+  padding-left: 80px;
+  padding: 10px;
+}
+.sitemap h1 {
+  color: #019587;
+}
+.row-0 {
+  display: flex;
+  justify-content: space-between;
+}
+.sitemap-col{
+  flex-basis: 15%;
+  border-radius: 10px;
+  padding: 20px 12px;
+  box-sizing: border-box;
+}
+.sitemap-col1{
+  flex-basis: 35%;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+
+/*---------------------------------------------------Admin------------------------------------------------------------*/
+
+.subcontent {
+  padding-top: 200px;
+}
+
+.admin-col{
+  border-radius: 10px;
+  padding: 20px 12px;
+  box-sizing: border-box;
+}
+.admin-col1{
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.table{
+  width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+}
+
+tbody {
+  display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+    tr {
+      display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+    }
+    .table td, .table th {
+      padding: .75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .table td, .table th {
+      padding: .75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }

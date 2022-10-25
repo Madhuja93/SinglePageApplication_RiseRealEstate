@@ -16,14 +16,7 @@ function slider() {
 
 var banner = document.getElementById("banner");
 
-var images = new Array(
-  "images/bg1.jpg",
-  "images/bg2.jpg",
-  "images/bg3.jpg",
-  "images/bg4.jpg"
-);
-
-var len = images.length;
+var len = 3;
 
 
   if (i > len - 1) {
@@ -31,8 +24,6 @@ var len = images.length;
   }
 
   var className = 'banner-img' + i;
-
-  // banner.src = images[i];
   $('#banner').removeClass($('#banner').attr('class'));
   $('#banner').addClass('banner ' + className);
 
@@ -131,6 +122,10 @@ function callAppointment() {
 
 function callAdmin(){
   callPage("admin.html", "#about");
+}
+
+function callSitemap(){
+  callPage("sitemap.html", "#content");
 }
 
 function callPage(pageRefInput, content) {
