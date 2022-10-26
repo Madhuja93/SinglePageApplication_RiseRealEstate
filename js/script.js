@@ -9,23 +9,20 @@ function hideMenu() {
 
 /*-----------------------------------------Banner slider--------------------------*/
 
-
 var i = 1;
 
 function slider() {
+  var banner = document.getElementById("banner");
 
-var banner = document.getElementById("banner");
-
-var len = 4;
-
+  var len = 4;
 
   if (i > len - 1) {
     i = 1;
   }
 
-  var className = 'banner-img' + i;
-  $('#banner').removeClass($('#banner').attr('class'));
-  $('#banner').addClass('banner ' + className);
+  var className = "banner-img" + i;
+  $("#banner").removeClass($("#banner").attr("class"));
+  $("#banner").addClass("banner " + className);
 
   i++;
   setTimeout("slider()", 3000);
@@ -52,19 +49,18 @@ function signup() {
   z.style.left = "0";
 }
 
-function onSignInButtonClick(){
+function onSignInButtonClick() {
   var username = $("#username").val();
   var password = $("#password").val();
 
-  if (username == "admin" && password == "admin"){
+  if (username == "admin" && password == "admin") {
     debugger;
     url = "http://127.0.0.1:5500/admin.html";
-window.open(url, '_blank');
+    window.open(url, "_blank");
   }
 }
 
-function onSignUpButtonClick(){
-
+function onSignUpButtonClick() {
   var firstname = $("#firstName").val();
   var lastname = $("#firstName").val();
   var Email = $("#email").val();
@@ -95,7 +91,6 @@ function onSignUpButtonClick(){
   localStorage.setItem("RiseInfo_" + generatedId, userInfo);
 
   callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
-
 }
 
 function onUpdate(userId) {
@@ -110,7 +105,6 @@ function onDelete(userId) {
   callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
 }
 
-
 /*------------------------------------Calling pages------------------------------------*/
 function callRegistration() {
   callPage("register.html", "#about");
@@ -122,17 +116,20 @@ function callPrivacyPolicy() {
 
 function callOpenHouse() {
   callPage("openhouse.html", "#about");
-} 
+}
+function callthankyou() {
+  callPage("thankyou.html", "#about");
+}
 
 function callAppointment() {
   callPage("appointment.html", "#about");
 }
 
-function callAdmin(){
+function callAdmin() {
   callPage("admin.html", "#about");
 }
 
-function callSitemap(){
+function callSitemap() {
   callPage("sitemap.html", "#content");
 }
 
@@ -143,34 +140,34 @@ function callPage(pageRefInput, content) {
     dataType: "text",
     success: function (response) {
       $(content).html(response);
-      window.location.href = 'index.html' + content;
+      window.location.href = "index.html" + content;
     },
   });
 }
 function callReset(value) {
   $(".active").removeClass("active");
 
-  if(value == 1) {
-    $("#bannderId").addClass("active"); 
-  } 
+  if (value == 1) {
+    $("#bannderId").addClass("active");
+  }
 
-  if(value == 2) {
-    $("#aboutId").addClass("active"); 
-  } 
+  if (value == 2) {
+    $("#aboutId").addClass("active");
+  }
 
-  if(value == 3) {
+  if (value == 3) {
     $("#exploreId").addClass("active");
   }
 
-  if(value == 4) {
+  if (value == 4) {
     $("#standardsId").addClass("active");
   }
 
-  if(value == 5) {
+  if (value == 5) {
     $("#testimonialsId").addClass("active");
   }
 
-  if(value == 6) {
+  if (value == 6) {
     $("#connectId").addClass("active");
   }
 
@@ -179,7 +176,7 @@ function callReset(value) {
   closePopup();
 }
 
-function loadAboutPage(){
+function loadAboutPage() {
   $("#about").append(function () {
     $.ajax({
       url: "about.html",
@@ -195,40 +192,54 @@ function loadAboutPage(){
 //Popup Page
 
 function callPopup(val) {
-  $('.popup').fadeIn(300);
+  $(".popup").fadeIn(300);
 
-  if(val == 1) {
-    $('#popupTitleId').text('Single Family Home for Rent, Galle');
-    $('#popupContentId').text('No 30, 7th Street, Sri Lanka, Rent this property for only Rs. 30,000 month.');
-  }
-
-  if(val == 2) {
-    $('#popupTitleId').text('3 Storey Spacious House for Sale, Homagama');
-    $('#popupContentId').text('Buy this property for only Rs. 414,398/month. Use our Home Loan Calculator to find out more or Compare the rates');
+  if (val == 1) {
+    $("#popupTitleId").text("Single Family Home for Rent, Galle");
+    $("#popupContentId").text(
+      "No 30, 7th Street, Sri Lanka, Rent this property for only Rs. 30,000 month."
+    );
   }
 
-  if(val == 3) {
-    $('#popupTitleId').text('House for Sale, Negambo');
-    $('#popupContentId').text('Buy this property for only Rs. 214,398 month.Use our Home Loan Calculator to find out more or Compare the rates');
+  if (val == 2) {
+    $("#popupTitleId").text("3 Storey Spacious House for Sale, Homagama");
+    $("#popupContentId").text(
+      "Buy this property for only Rs. 414,398/month. Use our Home Loan Calculator to find out more or Compare the rates"
+    );
   }
-  if(val == 4) {
-    $('#popupTitleId').text('House for sale, Dickmans Road -Colombo 5');
-    $('#popupContentId').text('Use our Home Loan Calculator to find out more or Compare the rates');
+
+  if (val == 3) {
+    $("#popupTitleId").text("House for Sale, Negambo");
+    $("#popupContentId").text(
+      "Buy this property for only Rs. 214,398 month.Use our Home Loan Calculator to find out more or Compare the rates"
+    );
   }
-  if(val == 5) {
-    $('#popupTitleId').text('House for sale, Jayanthipura, Battaramulla ');
-    $('#popupContentId').text('Use our Home Loan Calculator to find out more or Compare the rates');
+  if (val == 4) {
+    $("#popupTitleId").text("House for sale, Dickmans Road -Colombo 5");
+    $("#popupContentId").text(
+      "Use our Home Loan Calculator to find out more or Compare the rates"
+    );
   }
-  if(val == 6) {
-    $('#popupTitleId').text('4 Bedroom modern house at Thalawathugoda for immediate sale');
-    $('#popupContentId').text('Buy this property for only Rs. 362,398 month.Use our Home Loan Calculator to find out more or Compare the rates');
+  if (val == 5) {
+    $("#popupTitleId").text("House for sale, Jayanthipura, Battaramulla ");
+    $("#popupContentId").text(
+      "Use our Home Loan Calculator to find out more or Compare the rates"
+    );
+  }
+  if (val == 6) {
+    $("#popupTitleId").text(
+      "4 Bedroom modern house at Thalawathugoda for immediate sale"
+    );
+    $("#popupContentId").text(
+      "Buy this property for only Rs. 362,398 month.Use our Home Loan Calculator to find out more or Compare the rates"
+    );
   }
 }
 
-function closePopup(){
-  $('.popup').fadeOut(300);
+function closePopup() {
+  $(".popup").fadeOut(300);
 }
 
 $(document).ready(function () {
-  loadAboutPage(); 
+  loadAboutPage();
 });

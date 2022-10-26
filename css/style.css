@@ -31,7 +31,6 @@
     url(/images/bg3.jpg);
 }
 
-
 nav {
   top: 0;
   left: 0;
@@ -151,7 +150,7 @@ nav .fa {
   }
   .nav-links {
     position: absolute;
-    background: #009688;
+    background: #274342;
     height: 100vh;
     width: 200px;
     top: 0;
@@ -167,8 +166,8 @@ nav .fa {
   }
   nav .fa {
     display: block;
-    color: rgb(19, 92, 78);
-    margin: 20px;
+    color: rgb(231, 239, 237);
+    margin: 30px;
     font-size: 22px;
     cursor: pointer;
   }
@@ -232,6 +231,9 @@ h3 {
 @media (max-width: 700px) {
   .row {
     flex-direction: column;
+  }
+  nav{
+    position: relative;
   }
 }
 
@@ -394,7 +396,7 @@ hr {
 @media (max-width: 700px) {
   .single-standards {
     flex-basis: 100%;
-    margin-bottom: 30px;
+    
   }
   .standards-desc p {
     font-size: 10px;
@@ -534,11 +536,15 @@ hr {
   .footer-img {
     top: 15%;
   }
+  #footer{
+    margin-top: 0;
+    padding-top: 30px;
+  }
 }
 
 /*----------------------------------------------------SignUp-------------------------------------------*/
 #register {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), #009688);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/bg1.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -561,7 +567,7 @@ hr {
   width: 220px;
   margin: 35px auto;
   position: relative;
-  box-shadow: 0 0 20px 9px #009688;
+  box-shadow: 0 0 20px 9px #99ebe2;
   border-radius: 30px;
 }
 .toggle-btn {
@@ -578,7 +584,7 @@ hr {
   position: absolute;
   width: 110px;
   height: 100%;
-  background: linear-gradient(to right, #c6f1ec, #4e4c4a);
+  background: linear-gradient(to right, #9cd0cb, #604a1c);
   border-radius: 30px;
   transition: 0.5s;
 }
@@ -605,7 +611,7 @@ hr {
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(to right, #009688, #604a1c);
+  background: linear-gradient(to right,#9cd0cb, #604a1c);
   border: 0;
   outline: none;
   border-radius: 30px;
@@ -626,10 +632,11 @@ span {
   left: 450px;
 }
 @media (max-width: 700px) {
-  #register {
-    padding-top: 170px;
-  }
+#about{
+  padding: 0 0;
 }
+}
+
 
 /*--------------------------------------------------------Privacy Notice-------------------------------------*/
 .privacypolicy {
@@ -639,7 +646,6 @@ span {
   background-attachment: fixed;
 }
 .privacypolicy p {
-  margin-top: 60px;
   text-align: center;
 }
 @media (max-width: 700px) {
@@ -717,15 +723,34 @@ span {
   font-size: 10px;
   margin-top: 20px;
 }
+@media (max-width: 700px) {
+    
+  .openhouse .image__img{
+    align-items: center;
+    width: 300px;
+    height: 200px;
+  }
+  .image-title{
+    font-size: 10px;
+  }
+  .openhouse .popup-content{
+    font-size: 10px;
+    width: 200px;
+    margin: 0 0;
+  }
+  .title-text{
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
 
+}
 /*--------------------------------------sitemap--------------------------------------------------*/
-.sitemap p{
+.sitemap p {
   margin-top: 60px;
 }
 .sitemap {
   width: 100%;
   height: 100vh;
-  background-attachment: fixed;
   padding-left: 70px;
 }
 .sitemap a {
@@ -735,89 +760,108 @@ span {
   padding-left: 80px;
   padding: 10px;
 }
-.sitemap h1 {
+.sitemap h2 {
   color: #019587;
 }
 .row-0 {
   display: flex;
   justify-content: space-between;
 }
-.sitemap-col{
+.sitemap-col {
   flex-basis: 15%;
   border-radius: 10px;
   padding: 20px 12px;
   box-sizing: border-box;
 }
-.sitemap-col1{
+.sitemap-col1 {
   flex-basis: 35%;
   border-radius: 10px;
   box-sizing: border-box;
 }
-
-
+@media (max-width: 700px) {
+    
+  .sitemap {
+    width: 250px;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 0;
+  }
+  .sitemap h1, h2{
+    font-size: 20px;
+  }
+  .sitemap a{
+    font-size: 12px;
+  }
+}
+ 
 /*---------------------------------------------------Admin------------------------------------------------------------*/
 
 .subcontent {
   padding-top: 200px;
 }
 
-.admin-col{
+.admin-col {
   border-radius: 10px;
   padding: 20px 12px;
   box-sizing: border-box;
 }
-.admin-col1{
+.admin-col1 {
   border-radius: 10px;
   box-sizing: border-box;
 }
 
-  /************************************************** popup ***********************************************/
+/*---------------------------------------------------popup-------------------------------------------------------*/
 
-  /* Popup open button */
-  .openBtn {
-    color: #FFF;
-    background: #269faf;
-    padding: 10px;
-    text-decoration: none;
-    border: 1px solid #269faf;
-    border-radius: 3px;
-  }
- 
-  .openBtn:hover {
-    background: #35c7db;
-  }
- 
-  .popup {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background: rgba(0, 0, 0, 0.58);
-    width: 100%;
-    height: 100%;
-    display: none;
-  }
- 
-  /* Popup inner div */
-  .popup-content {
-    width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    margin-top: 100px;
-    border-radius: 3px;
-    background: #fff;
-    position: relative;
-  }
- 
-  /* Popup close button */
-  .closeBtn {
-    position: absolute;
-    top: 5px;
-    right: 12px;
-    font-size: 17px;
-    color: #7c7575;
-    text-decoration: none;
-  }
+/* Popup open button */
+.openBtn {
+  color: #fff;
+  background: #269faf;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #269faf;
+  border-radius: 3px;
+}
 
-  .mod {
-    margin: 5px;
-  }
+.openBtn:hover {
+  background: #35c7db;
+}
+
+.popup {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.58);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+/* Popup inner div */
+.popup-content {
+  width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 100px;
+  border-radius: 3px;
+  background: #fff;
+  position: relative;
+}
+
+/* Popup close button */
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  font-size: 17px;
+  color: #7c7575;
+  text-decoration: none;
+}
+
+.mod {
+  margin: 5px;
+}
+
+/*----------------------------------------------appointment-------------------------------------------*/
+.thankyou .form-box{
+  padding-top: 60px;
+}
