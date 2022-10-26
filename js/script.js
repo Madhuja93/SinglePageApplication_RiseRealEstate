@@ -16,7 +16,7 @@ function slider() {
 
 var banner = document.getElementById("banner");
 
-var len = 3;
+var len = 4;
 
 
   if (i > len - 1) {
@@ -53,7 +53,14 @@ function signup() {
 }
 
 function onSignInButtonClick(){
+  var username = $("#username").val();
+  var password = $("#password").val();
 
+  if (username == "admin" && password == "admin"){
+    debugger;
+    url = "http://127.0.0.1:5500/admin.html";
+window.open(url, '_blank');
+  }
 }
 
 function onSignUpButtonClick(){
@@ -93,6 +100,7 @@ function onSignUpButtonClick(){
 
 function onUpdate(userId) {
   callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+  location.reload();
 }
 
 function onDelete(userId) {
@@ -168,6 +176,7 @@ function callReset(value) {
 
   loadAboutPage();
   $("#content").empty();
+  closePopup();
 }
 
 function loadAboutPage(){
@@ -183,7 +192,43 @@ function loadAboutPage(){
   });
 }
 
+//Popup Page
+
+function callPopup(val) {
+  $('.popup').fadeIn(300);
+
+  if(val == 1) {
+    $('#popupTitleId').text('Single Family Home for Rent, Galle');
+    $('#popupContentId').text('No 30, 7th Street, Sri Lanka, Rent this property for only Rs. 30,000 month.');
+  }
+
+  if(val == 2) {
+    $('#popupTitleId').text('3 Storey Spacious House for Sale, Homagama');
+    $('#popupContentId').text('Buy this property for only Rs. 414,398/month. Use our Home Loan Calculator to find out more or Compare the rates');
+  }
+
+  if(val == 3) {
+    $('#popupTitleId').text('House for Sale, Negambo');
+    $('#popupContentId').text('Buy this property for only Rs. 214,398 month.Use our Home Loan Calculator to find out more or Compare the rates');
+  }
+  if(val == 4) {
+    $('#popupTitleId').text('House for sale, Dickmans Road -Colombo 5');
+    $('#popupContentId').text('Use our Home Loan Calculator to find out more or Compare the rates');
+  }
+  if(val == 5) {
+    $('#popupTitleId').text('House for sale, Jayanthipura, Battaramulla ');
+    $('#popupContentId').text('Use our Home Loan Calculator to find out more or Compare the rates');
+  }
+  if(val == 6) {
+    $('#popupTitleId').text('4 Bedroom modern house at Thalawathugoda for immediate sale');
+    $('#popupContentId').text('Buy this property for only Rs. 362,398 month.Use our Home Loan Calculator to find out more or Compare the rates');
+  }
+}
+
+function closePopup(){
+  $('.popup').fadeOut(300);
+}
+
 $(document).ready(function () {
-  loadAboutPage();
-  
+  loadAboutPage(); 
 });

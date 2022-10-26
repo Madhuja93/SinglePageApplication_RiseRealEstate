@@ -1,28 +1,32 @@
 
 <section id="openhouse" class="openhouse">
+
+  
   <div class="row">
-<div class="image-col">
-  <img class= "image__img" src="images/img01.jpg" alt="Negambo">
+<div class="image-col" onclick="callPopup(1)">
+  <img class= "image__img" src="images/img01.jpg" alt="Galle">
   <div class="image-overlay" .image-overlay--blur>
     <div class="image-title">$1,795,000</div>
     <p class="image-desc">
       3 Bd 2 Ba 2,373 Sqft
     </p>
   </div>
+ 
 </div>
 
-  <div class="image-col">
-  <img class= "image__img" src="images/img02.jpg" alt="Galle">
+  <div class="image-col" onclick="callPopup(2)" >
+  <img class= "image__img" src="images/img02.jpg" alt="Homagama">
   <div class="image-overlay" .image-overlay--blur>
     <div class="image-title">$1,695,000</div>
     <p class="image-desc">
       4 Bd 1 Ba 2,373 Sqft
     </p>
   </div>
+  
   </div>
 
-  <div class="image-col">
-  <img class= "image__img" src="images/img03.jpg" alt="Matara">
+  <div class="image-col" onclick="callPopup(3)">
+  <img class= "image__img" src="images/img03.jpg" alt="Negambo">
   <div class="image-overlay" .image-overlay--blur>
     <div class="image-title">$1,150,000</div>
     <p class="image-desc">
@@ -32,9 +36,9 @@
   </div>
   </div>
 
-  <div class="row">
+  <div class="row" onclick="callPopup(4)">
   <div class="image-col">
-  <img class= "image__img" src="images/img04.jpg" alt="Mt. Lavania">
+  <img class= "image__img" src="images/img04.jpg" alt="Dickman Road">
   <div class="image-overlay" .image-overlay--blur>
     <div class="image-title">$3,725,000</div>
     <p class="image-desc">
@@ -43,26 +47,40 @@
   </div>
   </div>
 
-  <div class="image-col">
-    <img class= "image__img" src="images/img05.jpg" alt="Panadura">
+  <div class="image-col" onclick="callPopup(5)">
+    <img class= "image__img" src="images/img05.jpg" alt="Battaramulla">
     <div class="image-overlay" .image-overlay--blur>
       <div class="image-title">$2,995,000</div>
       <p class="image-desc">
-        5 Bd 2 Ba 1,273 Sqft
+        4 Bd 2 Ba 1,273 Sqft
       </p>
     </div>
     </div>
 
-    <div class="image-col">
-      <img class= "image__img" src="images/img06.jpg" alt="Galle">
+    <div class="image-col" onclick="callPopup(6)">
+      <img class= "image__img" src="images/img06.jpg" alt="Thalawathugoda">
       <div class="image-overlay" .image-overlay--blur>
         <div class="image-title">$4,195,000</div>
         <p class="image-desc">
-          6 Bd 5 Ba 6,373 Sqft
+          4 Bd 5 Ba 6,373 Sqft
         </p>
       </div>
       </div>
 
   </div>
 </div>
+
+<div class="popup" >
+  <div class="popup-content">
+    <h2 id="popupTitleId">Popup Title</h2>
+    <p id="popupContentId">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.</p>
+    <a class="closeBtn" href="javascript:;closePopup()">x</a>
+  </div>
+</div>
+
+
 </section>
