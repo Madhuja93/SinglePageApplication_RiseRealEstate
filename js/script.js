@@ -54,17 +54,26 @@ function onSignInButtonClick() {
   var password = $("#password").val();
 
   if (username == "admin" && password == "admin") {
-    debugger;
-    url = "http://127.0.0.1:5500/admin.html";
-    window.open(url, "_blank");
+   callAdmin();
   }
 }
 
 function onSignUpButtonClick() {
+  if(!$('#termsId').prop('checked')){
+    alert('Please agree to terms and conditions');
+    return;
+  } else {
+
+    $("#content").empty();
+    $("#about").empty();
+    $("#openhouse").empty();
+    $("#newappointment").empty();
+
+  
   var firstname = $("#firstName").val();
-  var lastname = $("#firstName").val();
+  var lastname = $("#lastName").val();
   var Email = $("#email").val();
-  var Password = $("#password").val();
+  var Password = $("#password_0").val();
 
   var largestNumber = 0;
 
@@ -90,46 +99,150 @@ function onSignUpButtonClick() {
 
   localStorage.setItem("RiseInfo_" + generatedId, userInfo);
 
-  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+  callthankyou();
+}
 }
 
 function onUpdate(userId) {
-  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
-  location.reload();
+  $.ajax({
+    url: "leaddataedit.html",
+    type: "GET",
+    dataType: "text",
+    success: function (response) {
+      $("#registration").html(response);
+      window.location.href = "index.html#registration?Id=RiseInfo_" + userId ;
+      var _userInfo = getLeadRecord();
+        $("#firstNameEdit").val(_userInfo._firstName);
+        $("#lastNameEdit").val(_userInfo._lastName);
+        $("#emailEdit").val(_userInfo._email);
+        $("#passwordEdit").val(_userInfo._password);
+    },
+  });
+}
+
+function onUpdateButtonClick(){
+  var firstname = $("#firstNameEdit").val();
+  var lastname = $("#lastNameEdit").val();
+  var Email = $("#emailEdit").val();
+  var Password = $("#passwordEdit").val();
+
+  var existingUser = getLeadRecord();
+
+  var userInfo = {
+    _Id: existingUser._Id,
+    _firstName: firstname,
+    _lastName: lastname,
+    _email: Email,
+    _password: Password,
+  };
+
+  localStorage.setItem(
+    "RiseInfo_" + existingUser._Id,
+    JSON.stringify(userInfo)
+  );
+
+  alert("Successfully Updated!");
+
+  callAdmin();
+
+}
+
+function getLeadRecord() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var userId = "RiseInfo_" + url_string.slice(-1);
+
+  var _userInfos = localStorage;
+  var _userInfo;
+  for (var i = 0; i < _userInfos.length; i++) {
+    if (
+      userId ==
+      "RiseInfo_" + JSON.parse(localStorage.getItem(userId))._Id
+    ) {
+      _userInfo = JSON.parse(localStorage.getItem(userId));
+    }
+  }
+
+  return _userInfo;
 }
 
 function onDelete(userId) {
   localStorage.removeItem("RiseInfo_" + userId);
   alert("Successfully Deleted");
 
-  callPage("member.html?Id=RiseInfo_" + generatedId, "#admin");
+  geneateAdminTable();
+  
 }
 
 /*------------------------------------Calling pages------------------------------------*/
 function callRegistration() {
-  callPage("register.html", "#about");
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+
+  callPage("register.html", "#registration");
 }
 
 function callPrivacyPolicy() {
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
   callPage("privacypolicy.html", "#content");
 }
 
 function callOpenHouse() {
-  callPage("openhouse.html", "#about");
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+  callPage("openhouse.html", "#openhouse");
 }
 function callthankyou() {
-  callPage("thankyou.html", "#about");
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+  callPage("thankyou.html", "#thankyou");
 }
 
 function callAppointment() {
-  callPage("appointment.html", "#about");
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+  callPage("appointment.html", "#newappointment");
 }
 
 function callAdmin() {
-  callPage("admin.html", "#about");
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+  callPage("admin.html", "#admin");
+  geneateAdminTable();
 }
 
 function callSitemap() {
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
   callPage("sitemap.html", "#content");
 }
 
@@ -172,7 +285,13 @@ function callReset(value) {
   }
 
   loadAboutPage();
+  $("#admin").empty();
   $("#content").empty();
+  //$("#about").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
   closePopup();
 }
 
@@ -184,20 +303,26 @@ function loadAboutPage() {
       dataType: "text",
       success: function (response) {
         $("#about").html(response);
+  
       },
     });
   });
 }
 
+function onOkButtonClick(){
+  callReset(1);
+}
+
 //Popup Page
 
 function callPopup(val) {
+  
   $(".popup").fadeIn(300);
 
   if (val == 1) {
     $("#popupTitleId").text("Single Family Home for Rent, Galle");
     $("#popupContentId").text(
-      "No 30, 7th Street, Sri Lanka, Rent this property for only Rs. 30,000 month."
+      "No 30, 7th Street, Sri Lanka, Rent this property for only Rs. 30,000 month. "
     );
   }
 
@@ -234,12 +359,102 @@ function callPopup(val) {
       "Buy this property for only Rs. 362,398 month.Use our Home Loan Calculator to find out more or Compare the rates"
     );
   }
+
 }
 
 function closePopup() {
   $(".popup").fadeOut(300);
 }
 
+function geneateAdminTable(){
+  var userInfos = localStorage;
+        var _userInfos = [];
+
+        Object.keys(localStorage).forEach(function (key) {
+          if (JSON.parse(localStorage.getItem(key))._Id != undefined) {
+            _userInfos.push(JSON.parse(localStorage.getItem(key)));
+          }
+        });
+
+        console.log(_userInfos);
+
+        //Create a HTML Table element.
+        var table = $("<table><table />").addClass("table");
+
+        //Add the header row.
+        var row = $(table[0].insertRow(-1));
+
+        var headerCell_1 = $("<th />").addClass("admin th");
+        headerCell_1.html("Lead Id");
+        row.append(headerCell_1);
+
+        var headerCell_2 = $("<th />").addClass("admin th");
+        headerCell_2.html("First Name");
+        row.append(headerCell_2);
+
+        var headerCell_3 = $("<th />").addClass("admin th");
+        headerCell_3.html("Last Name");
+        row.append(headerCell_3);
+
+        var headerCell_4 = $("<th />").addClass("admin th");
+        headerCell_4.html("Email");
+        row.append(headerCell_4);
+
+        var headerCell_5 = $("<th />").addClass("admin th");
+        headerCell_5.html("Action");
+        row.append(headerCell_5);
+
+        //Add the data rows.
+        for (var i = 0; i < _userInfos.length; i++) {
+          row = $(table[0].insertRow(-1));
+
+          var cell_1 = $("<td />");
+          cell_1.html(_userInfos[i]._Id);
+          row.append(cell_1);
+
+          var cell_2 = $("<td />");
+          cell_2.html(_userInfos[i]._firstName);
+          row.append(cell_2);
+
+          var cell_3 = $("<td />");
+          cell_3.html(_userInfos[i]._lastName);
+          row.append(cell_3);
+
+          var cell_4 = $("<td />");
+          cell_4.html(_userInfos[i]._email);
+          row.append(cell_4);
+
+          row.append(
+            '<button class="button-update" type="button" onclick="onUpdate(' +
+            _userInfos[i]._Id +
+              ')" >Update</button>'
+          );
+          row.append(
+            '<button class="button-delete" type="button" onclick="onDelete(' +
+            _userInfos[i]._Id +
+              ')" >Delete</button>'
+          );
+        }
+
+        var dvTable = $(".subcontent");
+        dvTable.html("");
+        dvTable.append(table);
+}
+
+function makeAppointment(){
+  daySchedule.initPopupWidget({
+    url: 'https://meet.dayschedule.com/product-demo'
+});
+
+$("#admin").empty();
+$("#content").empty();
+$("#about").empty();
+$("#registration").empty(); 
+$("#thankyou").empty();
+$("#openhouse").empty();
+$("#newappointment").empty();
+}
+
 $(document).ready(function () {
-  loadAboutPage();
+  //loadAboutPage();
 });

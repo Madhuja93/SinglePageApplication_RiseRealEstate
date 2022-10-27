@@ -1,36 +1,3 @@
-<html>
-  <head>
-    <title>Rise Real Estate</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
-    />
-    <meta name="viewport" content="width =device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@100;200;300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="js\script.js"></script>
-  </head>
-
   <section class="admin">
     <div class="title-text">
       <p>Admin Page</p>
@@ -46,79 +13,7 @@
 
     <script>
       $(document).ready(function () {
-        var userInfos = localStorage;
-        var _userInfos = [];
-
-        Object.keys(localStorage).forEach(function (key) {
-          if (JSON.parse(localStorage.getItem(key))._Id != undefined) {
-            _userInfos.push(JSON.parse(localStorage.getItem(key)));
-          }
-        });
-
-        console.log(_userInfos);
-
-        //Create a HTML Table element.
-        var table = $("<table><table />").addClass("table");
-
-        //Add the header row.
-        var row = $(table[0].insertRow(-1));
-
-        var headerCell_1 = $("<th />");
-        headerCell_1.html("Reader Id");
-        row.append(headerCell_1);
-
-        var headerCell_2 = $("<th />");
-        headerCell_2.html("First Name");
-        row.append(headerCell_2);
-
-        var headerCell_3 = $("<th />");
-        headerCell_3.html("Last Name");
-        row.append(headerCell_3);
-
-        var headerCell_4 = $("<th />");
-        headerCell_4.html("Email");
-        row.append(headerCell_4);
-
-        var headerCell_5 = $("<th />");
-        headerCell_5.html("Action");
-        row.append(headerCell_5);
-
-        //Add the data rows.
-        for (var i = 0; i < _userInfos.length; i++) {
-          row = $(table[0].insertRow(-1));
-
-          var cell_1 = $("<td />");
-          cell_1.html(_userInfos[i]._Id);
-          row.append(cell_1);
-
-          var cell_2 = $("<td />");
-          cell_2.html(_userInfos[i]._firstName);
-          row.append(cell_2);
-
-          var cell_3 = $("<td />");
-          cell_3.html(_userInfos[i]._lastName);
-          row.append(cell_3);
-
-          var cell_4 = $("<td />");
-          cell_4.html(_userInfos[i]._email);
-          row.append(cell_4);
-
-          row.append(
-            '<button class="btn mod" type="button" onclick="onUpdate(' +
-              _userInfos[i]._Id +
-              ')" >Update</button>'
-          );
-          row.append(
-            '<button class="btn mod" type="button" onclick="onDelete(' +
-              _userInfos[i]._Id +
-              ')" >Delete</button>'
-          );
-        }
-
-        var dvTable = $(".subcontent");
-        dvTable.html("");
-        dvTable.append(table);
+        geneateAdminTable();
       });
     </script>
   </section>
-</html>

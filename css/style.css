@@ -182,7 +182,6 @@ nav .fa {
 /*------------------------------------------------About---------------------------------------------*/
 #about {
   width: 100%;
-  padding: 70px 0;
   height: 100vh;
   width: 100%;
   background: linear-gradient(#97d7d0, rgba(0, 0, 0, 0.5)), url(/images/bg1.jpg);
@@ -245,7 +244,7 @@ h3 {
 .title-text {
   text-align: center;
   padding-bottom: 70px;
-  padding-top: 60px;
+  padding-top: 120px;
 }
 .title-text p {
   margin: auto;
@@ -555,6 +554,7 @@ hr {
 }
 
 .form-box {
+  z-index: 2;
   width: 380px;
   height: 480px;
   position: relative;
@@ -631,6 +631,14 @@ span {
 #signup {
   left: 450px;
 }
+/*---------------------------------------------------Thankyou----------------------------------------------*/
+#thankyou{
+  background: linear-gradient(#d7eeeb, #fff);
+}
+#thankyou .thankyou-box{
+  top: 112px;
+}
+
 @media (max-width: 700px) {
 #about{
   padding: 0 0;
@@ -642,7 +650,7 @@ span {
 .privacypolicy {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(#fff, #97d7d0);
+  background: linear-gradient(#d7eeeb, #fff);
   background-attachment: fixed;
 }
 .privacypolicy p {
@@ -650,17 +658,20 @@ span {
 }
 @media (max-width: 700px) {
   .privacypolicy {
-    height: 260vh;
+    width: 100%;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
   }
 }
 
 /*-------------------------------------------------Open Houses---------------------------------------------*/
-.openhouse {
+#openhouse {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)),
-    url(images/img6.jpg);
+    url(/images/img6.jpg);
   background-size: cover;
   background-position: center;
-  height: 150vh;
   width: 100%;
   background-size: cover;
   position: absolute;
@@ -736,6 +747,7 @@ span {
   .openhouse .popup-content{
     font-size: 10px;
     width: 200px;
+    top: 450px;
     margin: 0 0;
   }
   .title-text{
@@ -746,7 +758,7 @@ span {
 }
 /*--------------------------------------sitemap--------------------------------------------------*/
 .sitemap p {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 .sitemap {
   width: 100%;
@@ -795,11 +807,9 @@ span {
 }
  
 /*---------------------------------------------------Admin------------------------------------------------------------*/
-
-.subcontent {
-  padding-top: 200px;
+.admin{
+  background: linear-gradient(#d7eeeb, #fff);
 }
-
 .admin-col {
   border-radius: 10px;
   padding: 20px 12px;
@@ -808,6 +818,39 @@ span {
 .admin-col1 {
   border-radius: 10px;
   box-sizing: border-box;
+}
+
+.admin th{
+align-items: center;
+text-align: left;
+width: 300px;
+}
+.table{
+  background-color: #d7eeeb;
+}
+.admin tr td:nth-child(5){
+  display: inline;
+}
+.button-update {
+  background-color: #59885b; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+}
+.button-delete {
+  background-color: #183119; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 /*---------------------------------------------------popup-------------------------------------------------------*/
@@ -828,7 +871,7 @@ span {
 
 .popup {
   position: fixed;
-  top: 0px;
+  top: 200px;
   left: 0px;
   background: rgba(0, 0, 0, 0.58);
   width: 100%;
@@ -857,11 +900,18 @@ span {
   text-decoration: none;
 }
 
-.mod {
-  margin: 5px;
-}
-
 /*----------------------------------------------appointment-------------------------------------------*/
-.thankyou .form-box{
+.appointment .form-box{
+  background: linear-gradient(#d7eeeb, #fff);
   padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.lead-registration {
+  margin: 40px;
+}
+@media (max-width: 700px) {
+  .appointment .form-box{
+  width: 250px;
+  }
 }
