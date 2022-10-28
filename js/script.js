@@ -68,39 +68,38 @@ function onSignUpButtonClick() {
     $("#about").empty();
     $("#openhouse").empty();
     $("#newappointment").empty();
+    
+    var firstname = $("#firstName").val();
+    var lastname = $("#lastName").val();
+    var Email = $("#email").val();
+    var Password = $("#password_0").val();
 
-  
-  var firstname = $("#firstName").val();
-  var lastname = $("#lastName").val();
-  var Email = $("#email").val();
-  var Password = $("#password_0").val();
+    var largestNumber = 0;
 
-  var largestNumber = 0;
+    if (localStorage.length != 0) {
+      Object.keys(localStorage).forEach(function (key) {
+        if (largestNumber < JSON.parse(localStorage.getItem(key))._Id) {
+          largestNumber = JSON.parse(localStorage.getItem(key))._Id;
+        }
+      });
+    }
 
-  if (localStorage.length != 0) {
-    Object.keys(localStorage).forEach(function (key) {
-      if (largestNumber < JSON.parse(localStorage.getItem(key))._Id) {
-        largestNumber = JSON.parse(localStorage.getItem(key))._Id;
-      }
-    });
+    var generatedId = largestNumber + 1;
+
+    var userInfo = {
+      _Id: generatedId,
+      _firstName: firstname,
+      _lastName: lastname,
+      _email: Email,
+      _password: Password,
+    };
+
+    var userInfo = JSON.stringify(userInfo);
+
+    localStorage.setItem("RiseInfo_" + generatedId, userInfo);
+
+    callthankyou();
   }
-
-  var generatedId = largestNumber + 1;
-
-  var userInfo = {
-    _Id: generatedId,
-    _firstName: firstname,
-    _lastName: lastname,
-    _email: Email,
-    _password: Password,
-  };
-
-  var userInfo = JSON.stringify(userInfo);
-
-  localStorage.setItem("RiseInfo_" + generatedId, userInfo);
-
-  callthankyou();
-}
 }
 
 function onUpdate(userId) {
@@ -231,9 +230,14 @@ function callAdmin() {
   $("#registration").empty(); 
   $("#thankyou").empty();
   $("#openhouse").empty();
-  $("#newappointment").empty();
+  $("#newappointment").empty(); 
   callPage("admin.html", "#admin");
-  geneateAdminTable();
+
+  setTimeout(function(){
+
+    window.location.href = 'index.html#admin';
+  }, 100);
+
 }
 
 function callSitemap() {
@@ -244,6 +248,16 @@ function callSitemap() {
   $("#openhouse").empty();
   $("#newappointment").empty();
   callPage("sitemap.html", "#content");
+}
+
+function callConect(){
+  $("#about").empty();
+  $("#content").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
+ window.location.href = "index.html#footer"
 }
 
 function callPage(pageRefInput, content) {
@@ -257,6 +271,7 @@ function callPage(pageRefInput, content) {
     },
   });
 }
+
 function callReset(value) {
   $(".active").removeClass("active");
 
@@ -287,7 +302,6 @@ function callReset(value) {
   loadAboutPage();
   $("#admin").empty();
   $("#content").empty();
-  //$("#about").empty();
   $("#registration").empty(); 
   $("#thankyou").empty();
   $("#openhouse").empty();
@@ -314,7 +328,6 @@ function onOkButtonClick(){
 }
 
 //Popup Page
-
 function callPopup(val) {
   
   $(".popup").fadeIn(300);
@@ -362,6 +375,7 @@ function callPopup(val) {
 
 }
 
+//close popup
 function closePopup() {
   $(".popup").fadeOut(300);
 }
@@ -375,8 +389,6 @@ function geneateAdminTable(){
             _userInfos.push(JSON.parse(localStorage.getItem(key)));
           }
         });
-
-        console.log(_userInfos);
 
         //Create a HTML Table element.
         var table = $("<table><table />").addClass("table");
