@@ -1,0 +1,13 @@
+/*---------------------------------------------------Thankyou----------------------------------------------*/
+#thankyou{
+  background: linear-gradient(#d7eeeb, #fff);
+}
+#thankyou .thankyou-box{
+  top: 112px;
+}
+
+@media (max-width: 700px) {
+#about{
+  padding: 0 0;
+}
+}

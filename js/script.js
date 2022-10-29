@@ -55,6 +55,8 @@ function onSignInButtonClick() {
 
   if (username == "admin" && password == "admin") {
    callAdmin();
+  }else{
+    window.location.href = "index.html";
   }
 }
 
@@ -104,7 +106,7 @@ function onSignUpButtonClick() {
 
 function onUpdate(userId) {
   $.ajax({
-    url: "leaddataedit.html",
+    url: "leaddataedit/leaddataedit.html",
     type: "GET",
     dataType: "text",
     success: function (response) {
@@ -182,7 +184,7 @@ function callRegistration() {
   $("#openhouse").empty();
   $("#newappointment").empty();
 
-  callPage("register.html", "#registration");
+  callPage("register/register.html", "#registration");
 }
 
 function callPrivacyPolicy() {
@@ -192,7 +194,7 @@ function callPrivacyPolicy() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
-  callPage("privacypolicy.html", "#content");
+  callPage("privacypolicy/privacypolicy.html", "#content");
 }
 
 function callOpenHouse() {
@@ -202,7 +204,7 @@ function callOpenHouse() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
-  callPage("openhouse.html", "#openhouse");
+  callPage("openhouse/openhouse.html", "#openhouse");
 }
 function callthankyou() {
   $("#about").empty();
@@ -211,7 +213,7 @@ function callthankyou() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
-  callPage("thankyou.html", "#thankyou");
+  callPage("thankyou/thankyou.html", "#thankyou");
 }
 
 function callAppointment() {
@@ -221,7 +223,7 @@ function callAppointment() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
-  callPage("appointment.html", "#newappointment");
+  callPage("appointment/appointment.html", "#newappointment");
 }
 
 function callAdmin() {
@@ -231,7 +233,7 @@ function callAdmin() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty(); 
-  callPage("admin.html", "#admin");
+  callPage("admin/admin.html", "#admin");
 
   setTimeout(function(){
 
@@ -247,7 +249,7 @@ function callSitemap() {
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
-  callPage("sitemap.html", "#content");
+  callPage("sitemap/sitemap.html", "#content");
 }
 
 function callConect(){
@@ -312,7 +314,7 @@ function callReset(value) {
 function loadAboutPage() {
   $("#about").append(function () {
     $.ajax({
-      url: "about.html",
+      url: "about/about.html",
       type: "GET",
       dataType: "text",
       success: function (response) {
