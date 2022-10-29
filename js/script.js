@@ -456,15 +456,15 @@ function geneateAdminTable(){
 function makeAppointment(){
   daySchedule.initPopupWidget({
     url: 'https://meet.dayschedule.com/product-demo'
-});
+  });
 
-$("#admin").empty();
-$("#content").empty();
-$("#about").empty();
-$("#registration").empty(); 
-$("#thankyou").empty();
-$("#openhouse").empty();
-$("#newappointment").empty();
+  $("#admin").empty();
+  $("#content").empty();
+  $("#about").empty();
+  $("#registration").empty(); 
+  $("#thankyou").empty();
+  $("#openhouse").empty();
+  $("#newappointment").empty();
 }
 
 $(document).ready(function () {
