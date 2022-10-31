@@ -54,23 +54,22 @@ function onSignInButtonClick() {
   var password = $("#password").val();
 
   if (username == "admin" && password == "admin") {
-   callAdmin();
-  }else{
+    callAdmin();
+  } else {
     window.location.href = "index.html";
   }
 }
 
 function onSignUpButtonClick() {
-  if(!$('#termsId').prop('checked')){
-    alert('Please agree to terms and conditions');
+  if (!$("#termsId").prop("checked")) {
+    alert("Please agree to terms and conditions");
     return;
   } else {
-
     $("#content").empty();
     $("#about").empty();
     $("#openhouse").empty();
     $("#newappointment").empty();
-    
+
     var firstname = $("#firstName").val();
     var lastname = $("#lastName").val();
     var Email = $("#email").val();
@@ -111,17 +110,17 @@ function onUpdate(userId) {
     dataType: "text",
     success: function (response) {
       $("#registration").html(response);
-      window.location.href = "index.html#registration?Id=RiseInfo_" + userId ;
+      window.location.href = "index.html#registration?Id=RiseInfo_" + userId;
       var _userInfo = getLeadRecord();
-        $("#firstNameEdit").val(_userInfo._firstName);
-        $("#lastNameEdit").val(_userInfo._lastName);
-        $("#emailEdit").val(_userInfo._email);
-        $("#passwordEdit").val(_userInfo._password);
+      $("#firstNameEdit").val(_userInfo._firstName);
+      $("#lastNameEdit").val(_userInfo._lastName);
+      $("#emailEdit").val(_userInfo._email);
+      $("#passwordEdit").val(_userInfo._password);
     },
   });
 }
 
-function onUpdateButtonClick(){
+function onUpdateButtonClick() {
   var firstname = $("#firstNameEdit").val();
   var lastname = $("#lastNameEdit").val();
   var Email = $("#emailEdit").val();
@@ -145,7 +144,6 @@ function onUpdateButtonClick(){
   alert("Successfully Updated!");
 
   callAdmin();
-
 }
 
 function getLeadRecord() {
@@ -156,10 +154,7 @@ function getLeadRecord() {
   var _userInfos = localStorage;
   var _userInfo;
   for (var i = 0; i < _userInfos.length; i++) {
-    if (
-      userId ==
-      "RiseInfo_" + JSON.parse(localStorage.getItem(userId))._Id
-    ) {
+    if (userId == "RiseInfo_" + JSON.parse(localStorage.getItem(userId))._Id) {
       _userInfo = JSON.parse(localStorage.getItem(userId));
     }
   }
@@ -172,14 +167,13 @@ function onDelete(userId) {
   alert("Successfully Deleted");
 
   geneateAdminTable();
-  
 }
 
 /*------------------------------------Calling pages------------------------------------*/
 function callRegistration() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -190,7 +184,7 @@ function callRegistration() {
 function callPrivacyPolicy() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -200,7 +194,7 @@ function callPrivacyPolicy() {
 function callOpenHouse() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -209,7 +203,7 @@ function callOpenHouse() {
 function callthankyou() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -219,7 +213,7 @@ function callthankyou() {
 function callAppointment() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -229,37 +223,35 @@ function callAppointment() {
 function callAdmin() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
-  $("#newappointment").empty(); 
+  $("#newappointment").empty();
   callPage("admin/admin.html", "#admin");
 
-  setTimeout(function(){
-
-    window.location.href = 'index.html#admin';
+  setTimeout(function () {
+    window.location.href = "index.html#admin";
   }, 100);
-
 }
 
 function callSitemap() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
   callPage("sitemap/sitemap.html", "#content");
 }
 
-function callConect(){
+function callConect() {
   $("#about").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
- window.location.href = "index.html#footer"
+  window.location.href = "index.html#footer";
 }
 
 function callPage(pageRefInput, content) {
@@ -304,7 +296,7 @@ function callReset(value) {
   loadAboutPage();
   $("#admin").empty();
   $("#content").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();
@@ -319,19 +311,17 @@ function loadAboutPage() {
       dataType: "text",
       success: function (response) {
         $("#about").html(response);
-  
       },
     });
   });
 }
 
-function onOkButtonClick(){
+function onOkButtonClick() {
   callReset(1);
 }
 
 //Popup Page
 function callPopup(val) {
-  
   $(".popup").fadeIn(300);
 
   if (val == 1) {
@@ -374,7 +364,6 @@ function callPopup(val) {
       "Buy this property for only Rs. 362,398 month.Use our Home Loan Calculator to find out more or Compare the rates"
     );
   }
-
 }
 
 //close popup
@@ -382,88 +371,88 @@ function closePopup() {
   $(".popup").fadeOut(300);
 }
 
-function geneateAdminTable(){
+function geneateAdminTable() {
   var userInfos = localStorage;
-        var _userInfos = [];
+  var _userInfos = [];
 
-        Object.keys(localStorage).forEach(function (key) {
-          if (JSON.parse(localStorage.getItem(key))._Id != undefined) {
-            _userInfos.push(JSON.parse(localStorage.getItem(key)));
-          }
-        });
+  Object.keys(localStorage).forEach(function (key) {
+    if (JSON.parse(localStorage.getItem(key))._Id != undefined) {
+      _userInfos.push(JSON.parse(localStorage.getItem(key)));
+    }
+  });
 
-        //Create a HTML Table element.
-        var table = $("<table><table />").addClass("table");
+  //Create a HTML Table element.
+  var table = $("<table><table />").addClass("table");
 
-        //Add the header row.
-        var row = $(table[0].insertRow(-1));
+  //Add the header row.
+  var row = $(table[0].insertRow(-1));
 
-        var headerCell_1 = $("<th />").addClass("admin th");
-        headerCell_1.html("Lead Id");
-        row.append(headerCell_1);
+  var headerCell_1 = $("<th />").addClass("admin th");
+  headerCell_1.html("Lead Id");
+  row.append(headerCell_1);
 
-        var headerCell_2 = $("<th />").addClass("admin th");
-        headerCell_2.html("First Name");
-        row.append(headerCell_2);
+  var headerCell_2 = $("<th />").addClass("admin th");
+  headerCell_2.html("First Name");
+  row.append(headerCell_2);
 
-        var headerCell_3 = $("<th />").addClass("admin th");
-        headerCell_3.html("Last Name");
-        row.append(headerCell_3);
+  var headerCell_3 = $("<th />").addClass("admin th");
+  headerCell_3.html("Last Name");
+  row.append(headerCell_3);
 
-        var headerCell_4 = $("<th />").addClass("admin th");
-        headerCell_4.html("Email");
-        row.append(headerCell_4);
+  var headerCell_4 = $("<th />").addClass("admin th");
+  headerCell_4.html("Email");
+  row.append(headerCell_4);
 
-        var headerCell_5 = $("<th />").addClass("admin th");
-        headerCell_5.html("Action");
-        row.append(headerCell_5);
+  var headerCell_5 = $("<th />").addClass("admin th");
+  headerCell_5.html("Action");
+  row.append(headerCell_5);
 
-        //Add the data rows.
-        for (var i = 0; i < _userInfos.length; i++) {
-          row = $(table[0].insertRow(-1));
+  //Add the data rows.
+  for (var i = 0; i < _userInfos.length; i++) {
+    row = $(table[0].insertRow(-1));
 
-          var cell_1 = $("<td />");
-          cell_1.html(_userInfos[i]._Id);
-          row.append(cell_1);
+    var cell_1 = $("<td />");
+    cell_1.html(_userInfos[i]._Id);
+    row.append(cell_1);
 
-          var cell_2 = $("<td />");
-          cell_2.html(_userInfos[i]._firstName);
-          row.append(cell_2);
+    var cell_2 = $("<td />");
+    cell_2.html(_userInfos[i]._firstName);
+    row.append(cell_2);
 
-          var cell_3 = $("<td />");
-          cell_3.html(_userInfos[i]._lastName);
-          row.append(cell_3);
+    var cell_3 = $("<td />");
+    cell_3.html(_userInfos[i]._lastName);
+    row.append(cell_3);
 
-          var cell_4 = $("<td />");
-          cell_4.html(_userInfos[i]._email);
-          row.append(cell_4);
+    var cell_4 = $("<td />");
+    cell_4.html(_userInfos[i]._email);
+    row.append(cell_4);
 
-          row.append(
-            '<button class="button-update" type="button" onclick="onUpdate(' +
-            _userInfos[i]._Id +
-              ')" >Update</button>'
-          );
-          row.append(
-            '<button class="button-delete" type="button" onclick="onDelete(' +
-            _userInfos[i]._Id +
-              ')" >Delete</button>'
-          );
-        }
+    row.append(
+      '<button class="button-update" type="button" onclick="onUpdate(' +
+        _userInfos[i]._Id +
+        ')" >Update</button>'
+    );
+    row.append(
+      '<button class="button-delete" type="button" onclick="onDelete(' +
+        _userInfos[i]._Id +
+        ')" >Delete</button>'
+    );
+  }
 
-        var dvTable = $(".subcontent");
-        dvTable.html("");
-        dvTable.append(table);
+  var dvTable = $(".subcontent");
+  dvTable.html("");
+  dvTable.append(table);
 }
 
-function makeAppointment(){
+function makeAppointment() {
   daySchedule.initPopupWidget({
-    url: 'https://meet.dayschedule.com/product-demo'
+    url: "https://meet.dayschedule.com/product-demo",
   });
 
   $("#admin").empty();
   $("#content").empty();
   $("#about").empty();
-  $("#registration").empty(); 
+  $("#registration").empty();
   $("#thankyou").empty();
   $("#openhouse").empty();
   $("#newappointment").empty();

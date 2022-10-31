@@ -1,5 +1,5 @@
 /*---------------------------------------------------Admin------------------------------------------------------------*/
-.admin{
+.admin {
   background: linear-gradient(#d7eeeb, #fff);
 }
 .admin-col {
@@ -12,21 +12,22 @@
   box-sizing: border-box;
 }
 
-.admin th{
-align-items: center;
-text-align: left;
-width: 300px;
+.admin th {
+  align-items: center;
+  text-align: left;
+  width: 300px;
 }
-.table{
+.table {
   background-color: #d7eeeb;
 }
-.admin tr td:nth-child(5){
+.admin tr td:nth-child(5) {
   display: inline;
 }
 
 /*----------------------------------------------------SignUp-------------------------------------------*/
 #register {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/images/bg1.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url(/images/bg1.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -94,7 +95,7 @@ width: 300px;
   cursor: pointer;
   display: block;
   margin: auto;
-  background: linear-gradient(to right,#9cd0cb, #604a1c);
+  background: linear-gradient(to right, #9cd0cb, #604a1c);
   border: 0;
   outline: none;
   border-radius: 30px;
