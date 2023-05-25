@@ -3,6 +3,7 @@ This responsive single-page application is designed for Rise Real Estate, a budd
 
 
 **Pages**
+
 Common Content:
 Header: Consistent header section across all pages.
 Footer: Consistent footer section across all pages.
@@ -21,6 +22,7 @@ Privacy Policy Page: Outlines Rise Real Estate's privacy policy, including data 
 
 
 **Project Technical Environment**
+
 HTML, CSS, JavaScript: Used to develop the website's front-end structure, styles, and interactivity.
 jQuery: JavaScript library used for enhanced DOM manipulation and event handling.
 Ajax: Used for asynchronous data retrieval and dynamic content loading.
@@ -28,6 +30,7 @@ Visual Studio Code or Any Text Editor: Recommended text editors for coding and p
 Apache Webserver / Apache Tomcat: Recommended web servers for hosting and serving the website.
 
 **Usage**
+
 To use or deploy the Rise Real Estate website, follow these steps:
 
 Clone the repository: git clone https://github.com/Madhuja93/SinglePageApplication_RiseRealEstate
